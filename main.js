@@ -1,5 +1,12 @@
-$('#app').append(`
-  <p class="read-the-docs">
-    Click on the Vite logo to learn more
-  </p>
-`)
+
+$('button#execute').click(function() {
+    const fileList = Array.from($('input#csv-file').prop('files'));
+    console.log(fileList);
+
+    if (fileList.length === 0) {
+        alert('Please select a file');
+        return;
+    }
+
+    fileList.forEach((file) => {})
+});
