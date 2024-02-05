@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 
 <head>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
   <meta charset="UTF-8" />
+  <meta name="author" content="Prainy" />
   <link rel="stylesheet" href="/style.css" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +14,14 @@
 <body>
   <div id="app">
     <h1>CSV filter</h1>
+    <p>Build with Vite
+    <img src="/vite.svg" alt="vite" height="24px">
+    and jQuery
+    <img src="/jquery.svg" alt="jquery" height="24px">
+    </p>
     <div class="card">
       <input type="file" id="csv-file" accept=".csv" multiple />
-      <button id="execute">处理</button>
+      <button id="execute">检查</button>
     </div>
   </div>
   <div class="list">
