@@ -17,9 +17,5 @@
     "eslint-plugin-jquery": "^1.5.1",
     "prettier": "3.2.5",
     "vite": "^5.0.12"
-  },
-  "dependencies": {
-    "csv-parse": "^5.5.3",
-    "iconv-lite": "^0.6.3"
   }
 }

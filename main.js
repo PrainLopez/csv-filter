@@ -1,6 +1,3 @@
-import { decodeStream } from 'iconv-lite'
-import { parse } from 'csv-parse'
-import { createReadStream } from 'fs'
 
 $('button#execute').click(function () {
   const fileList = Array.from($('input#csv-file').prop('files'))
@@ -15,26 +12,5 @@ $('button#execute').click(function () {
 
   const result = Map()
 
-  fileList.forEach((file) => {
-    const readStream = createReadStream(file.path)
-    const gbkStream = decodeStream('gbk')
-    const parseStream = parse({
-      delimiter: ',',
-      record_delimiter: '\n',
-      from_line: 4
-    })
-
-    readStream
-      .pipe(gbkStream)
-      .pipe(parseStream)
-      .on('readable', () => {
-        const filtered = []
-        do {
-            const record = parseStream.read()
-            if (record) {
-              filtered.push(record)
-            }
-        }
-      })
-  })
+  fileList.forEach((file) => {})
 })
