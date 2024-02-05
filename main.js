@@ -12,5 +12,25 @@ $('button#execute').click(function () {
 
   const result = Map()
 
-  fileList.forEach((file) => {})
+  fileList.forEach((file) => {
+    Papa.parse(file, {
+      delimiter: ",",
+      dynamicTyping: true,
+      encoding: "GBK",
+      step: undefined,
+      complete: undefined,
+      error: undefined,
+      download: false,
+      downloadRequestHeaders: undefined,
+      downloadRequestBody: undefined,
+      skipEmptyLines: false,
+      chunk: undefined,
+      chunkSize: undefined,
+      fastMode: undefined,
+      beforeFirstChunk: undefined,
+      withCredentials: undefined,
+      transform: undefined,
+      skipFirstNLines: 0
+    })
+  })
 })
