@@ -96,7 +96,8 @@ p {
 }
 
 details > p {
-  margin-left: 1em;
+  display: flex;
+  margin: 1em 1em;
 }
 
 img.inline {
@@ -107,4 +108,32 @@ img.inline {
 
 .error {
   color: #f55;
+}
+
+.list {
+  display: grid;
+}
+
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
 }
