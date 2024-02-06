@@ -95,7 +95,16 @@ p {
   margin: 1em 0;
 }
 
+details > p {
+  margin-left: 1em;
+}
+
 img.inline {
   width: 24px;
   height: 24px;
+  margin: 0 0.2em;
+}
+
+.error {
+  color: #f55;
 }
