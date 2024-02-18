@@ -19,7 +19,8 @@ $('button#execute').click(async () => {
         .every((item) => Number.parseInt(item) > 0)
 
     const stepFn = (results, parser) => {
-      if (!condition(results.data)) {
+      // skip the first 3 lines
+      if (lineCount > 3 && !condition(results.data)) {
         $('<p></p>')
           .text(
             `line ${lineCount}: ${results.data.slice(6, 9)}`
