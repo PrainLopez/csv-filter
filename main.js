@@ -1,4 +1,6 @@
 $('button#execute').click(async () => {
+  const fileRegex = /[<>:"\/\\|?* .]/g
+
   $('div.list').empty()
 
   const fileList = Array.from(
@@ -23,7 +25,7 @@ $('button#execute').click(async () => {
             `line ${lineCount}: ${results.data.slice(6, 9)}`
           )
           .appendTo(
-            `details.${file.name.replace('.', '-')}`
+            `details.${file.name.replace(fileRegex, '-')}`
           )
       }
 
@@ -34,7 +36,9 @@ $('button#execute').click(async () => {
       $('<p></p>')
         .text(`line ${lineCount}: ${error}`)
         .addClass('error')
-        .appendTo(`details.${file.name.replace('.', '-')}`)
+        .appendTo(
+          `details.${file.name.replace(fileRegex, '-')}`
+        )
 
       lineCount += 1
     }
@@ -63,12 +67,12 @@ $('button#execute').click(async () => {
     $('button#execute').prop('disabled', true)
 
     var detail = $('<details></details>').addClass(
-      file.name.replace('.', '-')
+      `${file.name.replace(fileRegex, '-')}`
     )
     detail.append(
       $('<summary></summary>')
         .text(file.name)
-        .addClass(file.name.replace('.', '-'))
+        .addClass(file.name.replace(fileRegex, '-'))
     )
     $('.list').append(detail)
 
