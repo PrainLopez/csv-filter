@@ -22,9 +22,7 @@ $('button#execute').click(async () => {
       // skip the first 3 lines
       if (lineCount > 3 && !condition(results.data)) {
         $('<p></p>')
-          .text(
-            `line ${lineCount}: ${results.data.slice(6, 9)}`
-          )
+          .text(`line ${lineCount}: ${results.data}`)
           .appendTo(
             `details.${file.name.replace(fileRegex, '-')}`
           )
@@ -67,15 +65,15 @@ $('button#execute').click(async () => {
 
     $('button#execute').prop('disabled', true)
 
-    var detail = $('<details></details>').addClass(
-      `${file.name.replace(fileRegex, '-')}`
-    )
+    var detail = $('<details></details>')
+      .prop('open', true)
+      .addClass(`${file.name.replace(fileRegex, '-')}`)
     detail.append(
       $('<summary></summary>')
         .text(file.name)
         .addClass(file.name.replace(fileRegex, '-'))
     )
-    $('.list').append(detail)
+    detail.appendTo('div.list')
 
     parser(file)
   }
