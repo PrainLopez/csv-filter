@@ -85,8 +85,7 @@ button:active {
 
 button:disabled {
   cursor: not-allowed;
-  background-color: #f55;
-  border: none;
+  opacity: 0.5;
 }
 
 p {

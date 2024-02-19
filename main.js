@@ -1,6 +1,10 @@
 $('button#execute').click(async () => {
   const fileRegex = /[<>:"\/\\|?* .]/g
 
+  $('button#execute').prop('disabled', true)
+  setTimeout(() => {
+    $('button#execute').prop('disabled', false)
+  }, 250)
   $('div.list').empty()
 
   const fileList = Array.from(
@@ -61,7 +65,6 @@ $('button#execute').click(async () => {
     }
 
     const completeFn = () => {
-      $('button#execute').prop('disabled', false)
       lineCount = 1
     }
 
@@ -80,8 +83,6 @@ $('button#execute').click(async () => {
 
   for (let i = 0; i < fileList.length; i++) {
     const file = fileList[i]
-
-    $('button#execute').prop('disabled', true)
 
     var detail = $('<details></details>').addClass(
       `${file.name.replace(fileRegex, '-')}`
