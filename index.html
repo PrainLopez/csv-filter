@@ -21,8 +21,24 @@
     <img class="inline" src="/jquery.svg" alt="jquery" />
     </p>
     <div class="card">
-      <input type="file" id="csv-file" accept=".csv" multiple />
-      <button id="execute">检查</button>
+      <div class="card">
+        <input type="file" id="csv-file" accept=".csv" multiple />
+        <button id="execute">检查</button>
+      </div>
+      <fieldset>
+        <legend>选择列:</legend>
+      
+        <div>
+          <input type="radio" name="column" value="789" checked />
+          <label for="huey">7-9列</label>
+        </div>
+      
+        <div>
+          <input type="radio" name="column" value="6" />
+          <label for="dewey">6列</label>
+        </div>
+      </fieldset>
+      
     </div>
     <div class="list">
       <script type="module" src="/main.js"></script>

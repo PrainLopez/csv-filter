@@ -12,11 +12,29 @@ $('button#execute').click(async () => {
     return
   }
 
+  const columnInput = $(
+    'input[name="column"]:checked'
+  ).val()
+
+  if (columnInput === undefined) {
+    alert('请选择列！')
+    return
+  }
+
+  const columnTrim = (data) => {
+    switch (columnInput) {
+      case '789':
+        return data.slice(6, 9)
+      case '6':
+        return data.slice(5, 6)
+    }
+  }
+
   const parser = (file) => {
     const condition = (data) =>
-      data
-        .slice(6, 9)
-        .every((item) => Number.parseInt(item) > 0)
+      columnTrim(data).every(
+        (item) => Number.parseInt(item) >= 0
+      )
 
     const stepFn = (results, parser) => {
       // skip the first 3 lines
@@ -65,9 +83,9 @@ $('button#execute').click(async () => {
 
     $('button#execute').prop('disabled', true)
 
-    var detail = $('<details></details>')
-      .prop('open', true)
-      .addClass(`${file.name.replace(fileRegex, '-')}`)
+    var detail = $('<details></details>').addClass(
+      `${file.name.replace(fileRegex, '-')}`
+    )
     detail.append(
       $('<summary></summary>')
         .text(file.name)
