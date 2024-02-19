@@ -65,6 +65,7 @@ input {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: rgba(255, 255, 255, 0.87);
 }
 button:hover, 
 input:hover {
@@ -75,6 +76,17 @@ button:focus-visible,
 input:focus,
 input:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+button:active {
+  background-color: #646cff;
+  transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: #f55;
+  border: none;
 }
 
 p {
